@@ -1,7 +1,7 @@
 {
   "version": 2,
   "installCommand": "pnpm install --no-frozen-lockfile",
-  "buildCommand": "pnpm --filter @workspace/simpai build",
+  "buildCommand": "cd artifacts/simpai && pnpm exec vite build",
   "outputDirectory": "artifacts/simpai/dist/public",
   "env": {
     "BASE_PATH": "/",
