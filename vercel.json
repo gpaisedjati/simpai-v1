@@ -1,7 +1,13 @@
 {
   "version": 2,
-  "buildCommand": "pnpm install && BASE_PATH=/ PORT=3000 pnpm --filter @workspace/simpai build",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "buildCommand": "pnpm --filter @workspace/simpai build",
   "outputDirectory": "artifacts/simpai/dist/public",
+  "env": {
+    "BASE_PATH": "/",
+    "PORT": "3000",
+    "NODE_ENV": "production"
+  },
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api/index" }
   ]
