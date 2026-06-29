@@ -1,0 +1,26 @@
+modules = ["nodejs-24"]
+
+[deployment]
+router = "application"
+deploymentTarget = "autoscale"
+
+[deployment.postBuild]
+args = ["pnpm", "store", "prune"]
+env = { "CI" = "true" }
+
+[workflows]
+runButton = "Project"
+
+[agent]
+stack = "PNPM_WORKSPACE"
+expertMode = true
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 20000
+
+[userenv]
+
+[userenv.shared]
+GSHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw8PQlwe--jlCdZr0mTOeQ1f_2KTZe7yfZj7Bp6vyGZb6H8EmenESdinFSK_stEY8iv9Q/exec"
+GSHEETS_SECRET_KEY = "GPAI-SeDjati"

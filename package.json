@@ -1,0 +1,26 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "BASE_PATH=/ PORT=3000 npx pnpm -r run build",
+    "dev": "BASE_PATH=/ PORT=3000 npx pnpm --filter @workspace/simpai run build && npx pnpm --filter @workspace/api-server run dev",
+    "start": "npx pnpm --filter @workspace/api-server run start",
+    "lint": "npx pnpm --filter @workspace/simpai run typecheck"
+  },
+  "private": true,
+  "devDependencies": {
+    "prettier": "^3.8.3",
+    "typescript": "~5.9.3",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "@google/genai": "^2.10.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.2",
+    "jsonrepair": "^3.14.1",
+    "mammoth": "^1.12.0"
+  }
+}
